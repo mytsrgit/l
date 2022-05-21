@@ -4,29 +4,8 @@ proxy-groups:
   - name: 全局选择
     type: select
     proxies:
-      - ALL
-      - HK
-      - TW
-      - US
-  - name: HK
-    type: url-test
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    use:
-      - hk
-  - name: TW
-    type: url-test
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    use:
-      - tw
-  - name: US
-    type: url-test
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    use:
-      - us
-  - name: ALL
+      - 自动选择
+  - name: 自动选择
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -34,33 +13,9 @@ proxy-groups:
       - all
 
 proxy-providers:
-  hk:
-    type: http
-    url: "https://proxies.bihai.cf/clash/proxies?c=HK"
-    path: proxies.bihai.cf/provider-hk.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  tw:
-    type: http
-    url: "https://proxies.bihai.cf/clash/proxies?c=TW"
-    path: proxies.bihai.cf/provider-tw.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  us:
-    type: http
-    url: "https://proxies.bihai.cf/clash/proxies?c=US"
-    path: proxies.bihai.cf/provider-us.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
   all:
     type: http
-    url: "https://proxies.bihai.cf/clash/proxies?c=TW,HK,US"
+    url: "https://sub.789.st/sub?target=clash&url=http://proxies.bihai.cf/clash/proxies?c=US"
     path: proxies.bihai.cf/provider-all.yaml
     health-check:
       enable: true
